@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sophia's Internship Countdown Clock</title>
+<link type="text/css" rel="stylesheet" href="clock_assets/flipclock.css" />
+</head>
+<body>
+<h1> Sophia's Internship Countdown Clock</h1>
+<h2> Time Left at CDPC:</h2>
+<div class="cdpc-output"></div>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+<script type="text/javascript" src="clock_assets/flipclock.js"></script>
+<style text="text/css">body .flip-clock-wrapper ul li a div div.inn, body .flip-clock-small-wrapper ul li a div div.inn { color: #CCCCCC; background-color: #333333; } body .flip-clock-dot, body .flip-clock-small-wrapper .flip-clock-dot { background: #323434; } body .flip-clock-wrapper .flip-clock-meridium a, body .flip-clock-small-wrapper .flip-clock-meridium a { color: #323434; }</style>
+
+<script type="text/javascript">
+var internshipStartDate = new Date(2015,8,1,8,0,0,0); 
+var rotationStartDate = new Date(2016,0,1,8,0,0,0); 
+var internshipEndDate = new Date(2016,8,1,16,30,0,0); 
+var rotationEndDate = new Date(2016,4,1,16,30,0,0);
+
+function percentageComplete(start, end, current){
+    var c = 100*((current-start)/(end-start)).toPrecision(3);
+    return c;
+}
+</script>
+
+<script type="text/javascript">
+$(function(){
+    FlipClock.Lang.Custom = { days:'Days', hours:'Hours', minutes:'Minutes', seconds:'Seconds' };
+    var opts = {
+clockFace: 'DailyCounter',
+countdown: true,
+language: 'Custom'
+};  
+var countdown = 1461965400 - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+countdown = Math.max(1, countdown);
+$('.cdpc-output').FlipClock(countdown, opts);
+});
+</script>
+
+<div class="progress progress-striped">
+  <div class="progress-bar" id='rotation-progressbar' role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+  </div>
+</div>
+<script type="text/javascript">
+var rotationComplete = percentageComplete(rotationStartDate, rotationEndDate, new Date());
+$('#rotation-progressbar').css('width', rotationComplete+'%');
+$('#rotation-progressbar').html(rotationComplete+'%');
+</script>
+
+<h2> Time Left For All internship:<h2>
+<div class="all-internship-clock"></div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="clock_assets/flipclock.js"></script>
+<style text="text/css">body .flip-clock-wrapper ul li a div div.inn, body .flip-clock-small-wrapper ul li a div div.inn { color: #CCCCCC; background-color: #333333; } body .flip-clock-dot, body .flip-clock-small-wrapper .flip-clock-dot { background: #323434; } body .flip-clock-wrapper .flip-clock-meridium a, body .flip-clock-small-wrapper .flip-clock-meridium a { color: #323434; }</style>
+<script type="text/javascript">
+$(function(){
+    FlipClock.Lang.Custom = { days:'Days', hours:'Hours', minutes:'Minutes', seconds:'Seconds' };
+    var opts = {
+clockFace: 'DailyCounter',
+countdown: true,
+language: 'Custom'
+};  
+var countdown = (Date.parse("August 31 2016")/1000) - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+countdown = Math.max(1, countdown);
+$('.all-internship-clock').FlipClock(countdown, opts);
+});
+</script>
+
+<div class="progress progress-striped">
+  <div class="progress-bar" id='internship-progressbar' role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+  </div>
+</div>
+<script type="text/javascript">
+var internshipComplete = percentageComplete(internshipStartDate, internshipEndDate, new Date());
+$('#internship-progressbar').css('width', internshipComplete+'%');
+$('#internship-progressbar').html(internshipComplete+'%');
+</script>
+</body>
+</html>
