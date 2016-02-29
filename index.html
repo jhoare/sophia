@@ -22,8 +22,10 @@
 <script type="text/javascript">
 var internshipStartDate = new Date(2015,8,1,8,0,0,0); 
 var rotationStartDate = new Date(2016,0,1,8,0,0,0); 
-var internshipEndDate = new Date(2016,8,1,16,30,0,0); 
-var rotationEndDate = new Date(2016,4,1,16,30,0,0);
+//var internshipEndDate = new Date(2016,8,1,16,30,0,0); 
+var internshipEndDate = new Date(2016,7,31,16,30,0,0); // August 31, 2016
+//var rotationEndDate = new Date(2016,4,1,16,30,0,0);
+var rotationEndDate = new Date(2016,3,29,16,30,0,0); // April 29, 2016
 
 function percentageComplete(start, end, current){
     var c = 100*((current-start)/(end-start)).toPrecision(3);
@@ -39,7 +41,8 @@ clockFace: 'DailyCounter',
 countdown: true,
 language: 'Custom'
 };  
-var countdown = 1461965400 - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+//var countdown = 1461965400 - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+var countdown = rotationEndDate/1000 - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
 countdown = Math.max(1, countdown);
 $('.cdpc-output').FlipClock(countdown, opts);
 });
@@ -68,7 +71,8 @@ clockFace: 'DailyCounter',
 countdown: true,
 language: 'Custom'
 };  
-var countdown = (Date.parse("August 31 2016")/1000) - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+//var countdown = (Date.parse("August 31 2016")/1000) - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
+var countdown = (internshipEndDate/1000) - ((new Date().getTime())/1000); // from: 04/29/2016 04:30 pm -0500
 countdown = Math.max(1, countdown);
 $('.all-internship-clock').FlipClock(countdown, opts);
 });
