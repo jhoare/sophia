@@ -20,7 +20,7 @@
 </head>
 <body>
 <h1> Sophia's Internship Countdown Clock</h1>
-<h2> Time Left at CDPC:</h2>
+<h2> Time Left at AMC Internship:</h2>
 <div class="cdpc-output"></div>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -34,11 +34,13 @@
 
 <script type="text/javascript">
 var internshipStartDate = new Date(2015,8,1,8,0,0,0); 
-var rotationStartDate = new Date(2016,0,1,8,0,0,0); 
+//var rotationStartDate = new Date(2016,0,1,8,0,0,0); 
+var rotationStartDate = new Date(2016,4,2,8,0,0,0); 
 //var internshipEndDate = new Date(2016,8,1,16,30,0,0); 
 var internshipEndDate = new Date(2016,7,31,16,30,0,0); // August 31, 2016
 //var rotationEndDate = new Date(2016,4,1,16,30,0,0);
-var rotationEndDate = new Date(2016,3,29,16,30,0,0); // April 29, 2016
+//var rotationEndDate = new Date(2016,3,29,16,30,0,0); // April 29, 2016
+var rotationEndDate = new Date(2016,7,31,16,30,0,0); // August 31, 2016
 
 function percentageComplete(start, end, current){
     var c = 100*((current-start)/(end-start)).toPrecision(3);
